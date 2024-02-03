@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const {Client,Collection,Events,GatewayIntentBits} =require('discord.js');
-const {token} = require('./config.json');
+const {token,indexLocation} = require('./config.json');
 
 
 const createWindow = ()=>{
@@ -16,7 +16,7 @@ const createWindow = ()=>{
     }
   })
 
-  win.loadFile('index.html')
+  win.loadFile(indexLocation);
 }
 
 
