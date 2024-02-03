@@ -1,0 +1,18 @@
+body {
+  font-family: "Poppins", sans-serif;
+  transition: 350ms ease-in-out;
+}
+
+.container h1 {
+  /* ... */
+  transition: 350ms ease-in-out;
+}
+
+
+
+.screen{
+  border-style: dashed;
+  height: 500px;
+  width: 800px;
+}
+
