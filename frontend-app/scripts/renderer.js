@@ -1,8 +1,8 @@
 const { ipcRenderer } = require('electron');
 
-document.getElementById('btn-close-app').addEventListener('click',()=>{
-	ipcRenderer.send('close-app');
-})
+function close_app(){
+  ipcRenderer.send('close-app');
+}
 
 function dark_mode(){
   var element = document.body;
