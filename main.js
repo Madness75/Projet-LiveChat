@@ -9,14 +9,19 @@ const {token,indexLocation} = require('./config.json');
 
 const createWindow = ()=>{
   const win = new BrowserWindow({
-    width : 800,
-    height : 600,
+    height : 680,
+    width : 1200,
+		minHeight : 620,
+		minWidth : 940,
+		frame : false,
     webPreferences:{
       preload: path.join(__dirname,'preload.js')
     }
   })
 
   win.loadFile(indexLocation);
+
+	
 }
 
 
