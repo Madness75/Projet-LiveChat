@@ -16,3 +16,6 @@ body {
   width: 800px;
 }
 
+.title-nav{
+  -webkit-app-region: drag;
+}

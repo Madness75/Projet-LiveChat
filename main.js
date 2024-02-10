@@ -1,4 +1,4 @@
-const {app,BrowserWindow} = require('electron');
+const {app,BrowserWindow,ipcRenderer,ipcMain} = require('electron');
 
 const fs = require('node:fs');
 const path = require('node:path');
@@ -7,13 +7,13 @@ const {Client,Collection,Events,GatewayIntentBits} =require('discord.js');
 const {token,indexLocation} = require('./config.json');
 
 
+
 const createWindow = ()=>{
   const win = new BrowserWindow({
     height : 680,
     width : 1200,
 		minHeight : 620,
 		minWidth : 940,
-		frame : false,
     webPreferences:{
       preload: path.join(__dirname,'preload.js')
     }
@@ -21,9 +21,14 @@ const createWindow = ()=>{
 
   win.loadFile(indexLocation);
 
-	
 }
 
+ipcMain.on('close-app',()=>{
+  console.log('close-app');
+	if(win){
+		win.close();
+	}
+})
 
 app.whenReady().then(()=>{
   createWindow()
@@ -36,6 +41,7 @@ app.whenReady().then(()=>{
     if (process.platform !== 'darwin') app.quit()
   })
 })
+
 
 
 
